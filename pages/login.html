@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Kitchen Log - login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="icon" type="img/png" href="../assets/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <header class="login-header">
+            <h1>
+                <a href="../index.html"><img class="logo" src="../assets/logo.svg" alt="logo"></a>
+            </h1>
+        </header>
+
+        <main>
+            <h2>ログイン</h2>
+            <form id="login-form">
+                <label>
+                    メールアドレス
+                    <input class="input" name="email" type="email" required>
+                </label>
+                <label>
+                    パスワード
+                    <input class="input" name="password" type="password" required>
+                </label>
+                <button type="button" id="login-btn" class="btn">ログイン</button>
+            </form>
+            <p>アカウントがない場合 <a href="signup.html"> 登録</a></p>
+        </main>
+
+        <footer>
+            <small class="copyright">&copy; <span id="year"></span> Kitchen Log</small>
+        </footer>
+
+        <script src="../js/login.js"></script>
+    </body>
+</html>
