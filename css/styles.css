@@ -10,7 +10,8 @@ body {
     line-height: 1.7;
     background-color: #E8ECD7;
     color: #1F4529;
-    margin: 0px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 a {
     text-decoration: none;
@@ -26,7 +27,7 @@ main {
     flex-direction: column;
     gap: 2rem;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
     padding: 1.5rem;
 }
 hr {
