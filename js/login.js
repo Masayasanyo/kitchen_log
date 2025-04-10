@@ -1,4 +1,4 @@
-const backenUrl = 'http://localhost:4000';
+const backendUrl = 'http://localhost:4000';
 
 document.getElementById("login-btn").addEventListener("click", async () => {
         const form = document.getElementById("login-form");
@@ -10,7 +10,7 @@ document.getElementById("login-btn").addEventListener("click", async () => {
         }
 
         try {
-            const response = await fetch(`${backenUrl}/accounts/login`, {
+            const response = await fetch(`${backendUrl}/accounts/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>Kitchen Log - upload set meal</title>
+        <title>Kitchen Log - public recipes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link rel="stylesheet" href="../css/styles.css">
@@ -78,35 +78,23 @@
             </svg>
         </header>
 
-        <main class="upload-recipe-page">
-            <h2>献立セットをアップロード</h2>
-            <form id="upload-set-meal-form">
-                <label>
-                    タイトル
-                    <input class="input" name="title" type="text" required>
-                </label>
-                <label>
-                    タグ
-                    <div class="tag-input">
-                        <input id="tag-input" class="input" type="text" placeholder="タグ名">
-                    </div>
-                    <div class="new-tag-list" id="new-tag-list"></div>
-                </label>
-                <label id="recipe-label">
-                    レシピ
-                    <input placeholder="レシピ名を入力" class="search-bar" type="search" id="search-bar">
-                    <ul class="recipe-sug-list" id="recipe-sug-list"></ul>
-                </label>
-                
-                <ul class="recipe-list" id="recipe-list"></ul>
-                <button class="btn" type="button" id="apply-set-meal">登録</button>
-            </form>
+        <main class="public-recipes-page">
+            <h2>みんなのレシピ</h2>
+            <div class="recipes-page-header">
+                <input id="search" class="search-bar" placeholder="検索">
+                <a href="upload_recipe.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill plus-circle" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                    </svg>
+                </a>
+            </div>
+            <ul class="recipe-list" id="recipe-list"></ul>
         </main>
 
         <footer>
             <small class="copyright">&copy; <span id="year"></span> Kitchen Log</small>
         </footer>
 
-        <script src="../js/upload_set_meal.js"></script>
+        <script src="../js/public_recipes.js"></script>
     </body>
 </html>

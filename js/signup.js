@@ -1,8 +1,8 @@
-const backenUrl = 'http://localhost:4000';
+const backendUrl = 'http://localhost:4000';
 
 async function login(userData) {
     try {
-        const response = await fetch(`${backenUrl}/accounts/login`, {
+        const response = await fetch(`${backendUrl}/accounts/login`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ document.getElementById("signup-btn").addEventListener("click", async () => {
         }
 
         try {
-            await fetch(`${backenUrl}/accounts/signup`, {
+            await fetch(`${backendUrl}/accounts/signup`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

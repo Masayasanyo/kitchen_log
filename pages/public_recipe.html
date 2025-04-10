@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Kitchen Log - no page</title>
+    <title>Kitchen Log - public recipe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="../css/styles.css" />
@@ -169,14 +169,27 @@
       </svg>
     </header>
 
-    <main class="no-page">
-        <h2>このページはまだありません</h2>
+    <main class="recipe-page">
+      <img id="recipe-img" class="recipe-img" src="" alt="recipe image" />
+      <h2 id="recipe-title"></h2>
+      <ul id="tag-list" class="tag-list"></ul>
+      <p id="recipe-memo" class="recipe-description"></p>
+      <div class="ing-container">
+        <h3>材料</h3>
+        <ul id="ing-list" class="ing-list"></ul>
+      </div>
+      <div class="step-container">
+        <h3>手順</h3>
+        <ol id="step-list" class="step-list"></ol>
+      </div>
     </main>
 
     <footer>
-      <small class="copyright">&copy; <span id="year"></span> Kitchen Log</small>
+      <small class="copyright"
+        >&copy; <span id="year"></span> Kitchen Log</small
+      >
     </footer>
 
-    <script src="../js/nopage.js"></script>
+    <script src="../js/public_recipe.js"></script>
   </body>
 </html>

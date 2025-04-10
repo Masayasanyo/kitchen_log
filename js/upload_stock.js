@@ -41,6 +41,7 @@ document.getElementById("apply-stock").addEventListener("click", async () => {
             body: JSON.stringify(stockData), 
         });
         const data = await response.json();
+        window.location.href = 'stock.html';
     } catch (error) {
         console.error(`Internal server error.`, error);
     }

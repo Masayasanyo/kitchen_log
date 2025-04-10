@@ -160,7 +160,7 @@ function setStep(data) {
 async function fetchRecipe() {
     try {
         const token = localStorage.getItem("jwt");
-        const response = await fetch(`${backendUrl}/recipes/recipe`, {
+        const response = await fetch(`${backendUrl}/recipes/recipe/admin`, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
