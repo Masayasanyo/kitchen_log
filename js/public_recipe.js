@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 
@@ -41,7 +41,7 @@ async function fetchRecipe() {
 
     document.getElementById("recipe-title").innerHTML = recipeData.title;
     document.getElementById("recipe-memo").innerHTML = recipeData.memo;
-    document.getElementById("recipe-img").src = `${backendUrl}${recipeData.image_url}`;
+    document.getElementById("recipe-img").src = `${recipeData.image_url}`;
 
     document.getElementById("tag-list").innerHTML = tagData
       .map((tag) => {

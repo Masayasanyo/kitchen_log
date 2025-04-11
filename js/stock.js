@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 let stockList = [];
 
 async function checkSession() {

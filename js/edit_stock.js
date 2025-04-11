@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 
@@ -82,6 +82,23 @@ document.getElementById("apply-edit-stock").addEventListener("click", async () =
 
 document.getElementById("cansel-edit-stock").addEventListener("click", function() {
     window.location.href = `stock.html`;
+});
+
+document.getElementById("delete-stock").addEventListener("click", async () => {
+    try {
+        const token = localStorage.getItem('jwt');
+        await fetch(`${backendUrl}/delete/stock`, {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json' 
+            }, 
+            body: JSON.stringify({ stockId: id }), 
+        });
+        window.location.href = `stock.html`;
+    } catch (error) {
+        console.error(`Internal server error.`, error);
+    }
 });
 
 document.getElementById("nav-cancel").addEventListener("click", () => {

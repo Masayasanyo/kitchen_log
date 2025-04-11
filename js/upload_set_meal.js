@@ -57,7 +57,7 @@ async function selectRecipe(id) {
         });
         const data = await response.json();    
         const title = data.recipeData[0].title;
-        const url = `${backendUrl}${data.recipeData[0].image_url}`;
+        const url = `${data.recipeData[0].image_url}`;
    
         const newHtml = `                   
                             <svg onclick="cancelRecipe(${id})" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-circle cancel-recipe-btn" viewBox="0 0 16 16">

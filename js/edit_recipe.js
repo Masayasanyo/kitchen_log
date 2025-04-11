@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 
@@ -177,7 +177,7 @@ async function fetchRecipe() {
         document.getElementById("recipe-title").value = recipeData.title;
         document.getElementById("recipe-memo").innerHTML = recipeData.memo;
         if (recipeData.image_url !== '') {
-            document.getElementById("recipe-img").src = `${backendUrl}${recipeData.image_url}`;
+            document.getElementById("recipe-img").src = `${recipeData.image_url}`;
             imgUrl = recipeData.image_url;
         }
         setTag(tagData);
@@ -191,7 +191,7 @@ async function fetchRecipe() {
 async function deleteImg() {
     try {
         const token = localStorage.getItem('jwt');
-        const response = await fetch(`${backendUrl}/edit/file`, {
+        const response = await fetch(`${backendUrl}/delete/file`, {
             method: "DELETE", 
             headers: {
                 'Authorization': `Bearer ${token}`, 
@@ -219,7 +219,7 @@ async function uploadImg() {
 
     try {
         const token = localStorage.getItem('jwt');
-        const response = await fetch(`${backendUrl}/edit/file`, {
+        const response = await fetch(`${backendUrl}/upload/file`, {
             method: "POST", 
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -384,6 +384,24 @@ document.getElementById("step-input").addEventListener("keypress", (e) => {
 document.getElementById("cansel-edit-recipe").addEventListener("click", function() {
     const params = new URLSearchParams({ id, id });
     window.location.href = `recipe.html?${params.toString()}`;
+});
+
+document.getElementById("delete-recipe").addEventListener("click", async () => {
+    await deleteImg();
+    try {
+        const token = localStorage.getItem('jwt');
+        await fetch(`${backendUrl}/delete/recipe`, {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json' 
+            }, 
+            body: JSON.stringify({ recipeId: id }), 
+        });
+        window.location.href = `recipes.html`;
+    } catch (error) {
+        console.error(`Internal server error.`, error);
+    }
 });
 
 document.getElementById("nav-cancel").addEventListener("click", () => {

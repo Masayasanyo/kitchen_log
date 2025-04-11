@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 let setMealsList = [];
 
 async function checkSession() {
@@ -76,7 +76,7 @@ function createTagHtml(list) {
 function createRecipeHtml(list) {
     const recipeHtml = list
       .map((l) => {
-        return `<li><img class="recipe-img" alt="recipe image" src="${backendUrl}${l.image_url}"></li>`;
+        return `<li><img class="recipe-img" alt="recipe image" src="${l.image_url}"></li>`;
       })
       .join("");
 

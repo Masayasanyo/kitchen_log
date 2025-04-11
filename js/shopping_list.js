@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 let shoppingList = [];

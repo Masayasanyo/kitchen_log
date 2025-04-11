@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:4000";
+const backendUrl = "https://kitchen-log-backend.onrender.com";
 let recipesList = [];
 let stockList = [];
 let shoppingList = [];
@@ -55,7 +55,7 @@ function setRecipes(list) {
       const title = recipe.title;
 
       return `<li class="recipe" onclick="seeRecipe(${id})">
-                <img class="recipe-img" alt="recipe image" src="${backendUrl}${url}"> 
+                <img class="recipe-img" alt="recipe image" src="${url}"> 
                 <p>${title}</p>
                 </li>
             `;

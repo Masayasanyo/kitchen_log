@@ -89,6 +89,9 @@ ul {
     height: 20px;
     fill: #1F4529;
 }
+#delete-recipe, #delete-set-meal, #delete-stock{
+    background-color: rgb(173, 51, 51);
+}
 
 /* image */
 .recipe-img {
