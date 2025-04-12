@@ -1,4 +1,6 @@
 const backendUrl = "https://kitchen-log-backend.onrender.com";
+// const backendUrl = "http://localhost:4000";
+
 
 document.getElementById("login-btn").addEventListener("click", async () => {
         const form = document.getElementById("login-form");

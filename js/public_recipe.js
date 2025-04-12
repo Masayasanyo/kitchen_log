@@ -1,4 +1,6 @@
 const backendUrl = "https://kitchen-log-backend.onrender.com";
+// const backendUrl = "http://localhost:4000";
+
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 

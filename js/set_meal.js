@@ -1,6 +1,12 @@
 const backendUrl = "https://kitchen-log-backend.onrender.com";
+// const backendUrl = "http://localhost:4000";
+
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
+
+let setMealData = [];
+let tagData = [];
+let recipeData = [];
 
 async function checkSession() {
   try {
@@ -39,9 +45,9 @@ async function fetchSetMeal() {
       body: JSON.stringify({ setMealId: id }),
     });
     const data = await response.json();
-    const setMealData = data.setMealData;
-    const tagData = data.tag;
-    const recipeData = data.recipe;
+    setMealData = data.setMealData;
+    tagData = data.tag;
+    recipeData = data.recipe;
 
     document.getElementById("set-meal-title").innerHTML = setMealData.title;
 
@@ -71,11 +77,63 @@ async function fetchSetMeal() {
   }
 }
 
+async function fetchRecipeData(id) {
+  try {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(`${backendUrl}/recipes/recipe`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ recipeId: id }),
+    });
+    const data = await response.json();
+    const ingData = data.ingData;
+    return ingData;
+  } catch (error) {
+    console.error(`Internal server error.`, error);
+    return [];
+  }
+}
 
+async function addToShoppingList(task) {
+  for (let i = 0; i < task.length; i++) {
+    try {
+      const token = localStorage.getItem('jwt');
+      await fetch(`${backendUrl}/upload/task`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json' 
+        }, 
+        body: JSON.stringify({ task: task[i] }), 
+      });
+    } catch (error) {
+      console.error(`Internal server error.`, error);
+    }
+  }
+}
 
-fetchSetMeal();
+document.getElementById("add-to-list").addEventListener("click", async () => {
+  let ingList = [];
+  for (let i = 0; i < recipeData.length; i++) {
+    const list = await fetchRecipeData(recipeData[i].id);
+    for (let j = 0; j < list.length; j++) {
+      ingList.push(list[j]);
+    }
+  }
+  
 
-checkSession();
+  ingList = ingList.map(ing => `${ing.name}...${ing.amount}`);
+  
+  console.log(ingList);
+
+  await addToShoppingList(ingList);
+
+  const params = new URLSearchParams({ id, id });
+  window.location.href = `./set_meal.html?${params.toString()}`;
+});
 
 document.getElementById("nav-cancel").addEventListener("click", () => {
   document.getElementById("sidebar").style.display = "none";
@@ -89,3 +147,7 @@ document.getElementById("sidebar").style.display = "none";
 
 const currentYear = new Date().getFullYear();
 document.querySelector("#year").innerHTML = currentYear;
+
+fetchSetMeal();
+
+checkSession();

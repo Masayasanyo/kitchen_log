@@ -1,4 +1,6 @@
 const backendUrl = "https://kitchen-log-backend.onrender.com";
+// const backendUrl = "http://localhost:4000";
+
 let recipesList = [];
 
 async function checkSession() {
