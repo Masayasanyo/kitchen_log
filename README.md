@@ -29,3 +29,5 @@ You can:
   
 -My family wants to share their recipes and go shopping easily so I created this app.  
  家族とレシピを共有したり、スムーズに買い物をするための仕組みがほしくて、このアプリを作りました。  
+-I made this to practice vanilla JavaScript.
+ バニラjsの練習のために作りました。
