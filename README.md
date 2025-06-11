@@ -3,11 +3,6 @@
 A simple app to manage recipes, meals, stock, and shopping lists — made for everyday kitchen life.  
 レシピ、献立、在庫、買い物リストを簡単に管理できる、日常の料理に役立つアプリです。  
 
-## DEMO / デモ
-
-https://masayasanyo.github.io/kitchen_log/  
-
-
 ## Features / 主な機能
   
 You can:  
